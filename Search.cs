@@ -95,7 +95,7 @@ namespace Dubletter
                                     });
                             }
                             _fileDuplicates.Add(
-                                new Duplicates
+                                new Duplicates()
                                 {
                                     fileName = f.Name,
                                     fileCreateDate = f.CreationTime,
@@ -104,12 +104,12 @@ namespace Dubletter
                                 });
                         }
 
-                        _filesList.Add(new Fil { fileName = f.Name, filePath = f.FullName, fileSize = f.Length, fileCreateDate = f.CreationTime });
+                        _filesList.Add(new Fil(f) { fileName = f.Name, filePath = f.FullName, fileSize = f.Length, fileCreateDate = f.CreationTime });
                         
                     }
                     else
                     {
-                        _filesList.Add(new Fil { fileName = f.Name, filePath = f.FullName, fileSize = f.Length, fileCreateDate = f.CreationTime });
+                        _filesList.Add(new Fil(f) { fileName = f.Name, filePath = f.FullName, fileSize = f.Length, fileCreateDate = f.CreationTime });
                     }
 
                 }

@@ -48,7 +48,7 @@
             // 
             this.btnStartDir.Location = new System.Drawing.Point(66, 12);
             this.btnStartDir.Name = "btnStartDir";
-            this.btnStartDir.Size = new System.Drawing.Size(195, 30);
+            this.btnStartDir.Size = new System.Drawing.Size(195, 26);
             this.btnStartDir.TabIndex = 0;
             this.btnStartDir.Text = "Klicka här för att ange startkatalog!";
             this.btnStartDir.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             // 
             this.btnEnterStartPath.Location = new System.Drawing.Point(267, 12);
             this.btnEnterStartPath.Name = "btnEnterStartPath";
-            this.btnEnterStartPath.Size = new System.Drawing.Size(218, 26);
+            this.btnEnterStartPath.Size = new System.Drawing.Size(202, 26);
             this.btnEnterStartPath.TabIndex = 8;
             this.btnEnterStartPath.Text = "Ange katalog genom att skriva in den";
             this.btnEnterStartPath.UseVisualStyleBackColor = true;

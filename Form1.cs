@@ -156,13 +156,13 @@ namespace Dubletter
         private void btnStartDuplicates_Click(object sender, EventArgs e)
         {
 
-            SearchEngine engine = new SearchEngine(@"c:\temp\");
-            engine.Search(false);
+            //SearchEngine engine = new SearchEngine(@"c:\temp\");
+            //engine.Search(false);
 
-            //lstDublett.Items.Clear();
+            lstDublett.Items.Clear();
 
-            //_workerThread = new Thread(new ParameterizedThreadStart(performSearch));
-            //_workerThread.Start();
+            _workerThread = new Thread(new ParameterizedThreadStart(performSearch));
+            _workerThread.Start();
 
         }
 
