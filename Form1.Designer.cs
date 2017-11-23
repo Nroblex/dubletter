@@ -133,7 +133,7 @@
             // colSize
             // 
             this.colSize.Text = "Storlek";
-            this.colSize.Width = 90;
+            this.colSize.Width = 101;
             // 
             // lblFileSearch
             // 
@@ -149,9 +149,9 @@
             this.lblDirSearch.AutoSize = true;
             this.lblDirSearch.Location = new System.Drawing.Point(12, 593);
             this.lblDirSearch.Name = "lblDirSearch";
-            this.lblDirSearch.Size = new System.Drawing.Size(35, 13);
+            this.lblDirSearch.Size = new System.Drawing.Size(10, 13);
             this.lblDirSearch.TabIndex = 6;
-            this.lblDirSearch.Text = "label1";
+            this.lblDirSearch.Text = ":";
             // 
             // btnMove
             // 

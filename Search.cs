@@ -4,11 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using log4net;
 namespace Dubletter
 {
     public class Search
     {
+        private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private string _initDirPath = null;
         private bool _isMatchOnNames = false;
         private DirectoryInfo _initDir = null;
@@ -36,23 +38,34 @@ namespace Dubletter
 
         public void PerformSearch(frmMain objMain)
         {
+            DirectoryInfo[] subDirs = null;
             _initDir = new DirectoryInfo(_initDirPath);
             _objMain = objMain;
 
-            DirectoryInfo[] subDirs = _initDir.GetDirectories("*", SearchOption.AllDirectories);
 
-            SearchFolderForDuplicates(_initDir);
-            //Loopa igenom alla bibliotek.
-            //foreach (DirectoryInfo dirInf in _initDir.GetDirectories("*", SearchOption.AllDirectories))
-            foreach(DirectoryInfo dirInf in subDirs )
+            try
             {
-                //Alla filer i just detta bibliotek.
-                _objMain.frmMain_OnSetDirName(dirInf.FullName);
-                SearchFolderForDuplicates(dirInf);
+                subDirs = _initDir.GetDirectories("*", SearchOption.AllDirectories);
+
+                SearchFolderForDuplicates(_initDir);
+                //Loopa igenom alla bibliotek.
+                //foreach (DirectoryInfo dirInf in _initDir.GetDirectories("*", SearchOption.AllDirectories))
+                foreach (DirectoryInfo dirInf in subDirs)
+                {
+                    //Alla filer i just detta bibliotek.
+                    _objMain.frmMain_OnSetDirName(dirInf.FullName);
+                    SearchFolderForDuplicates(dirInf);
+
+                }
+
+                ReportDuplicates();
 
             }
-
-            ReportDuplicates();
+            catch (Exception ep)
+            {
+                logger.Error(ep);
+            }
+            
 
         }
 
